@@ -1,0 +1,2 @@
+-- Contrato ilustrativo para reemplazar por el paquete PL/SQL heredado verificado.
+-- No ejecutar este archivo ni invocar conciliación mientras las respuestas sean dummy.

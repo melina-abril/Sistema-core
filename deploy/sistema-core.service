@@ -1,0 +1,14 @@
+[Unit]
+Description=Sistema Core backend
+After=network-online.target
+
+[Service]
+Type=simple
+User=sistemacore
+EnvironmentFile=/etc/sistema-core/application.env
+ExecStart=/usr/bin/java -jar /opt/sistema-core/sistema-core.jar
+Restart=on-failure
+SuccessExitStatus=143
+
+[Install]
+WantedBy=multi-user.target

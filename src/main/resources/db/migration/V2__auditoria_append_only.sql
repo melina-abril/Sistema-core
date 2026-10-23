@@ -1,0 +1,3 @@
+-- El usuario de aplicación deberá recibir únicamente SELECT e INSERT sobre AUDITORIA.
+CREATE TABLE AUDITORIA (ID NUMBER(19) PRIMARY KEY, ENTIDAD VARCHAR2(100) NOT NULL, ACCION VARCHAR2(40) NOT NULL, VALOR_ANTERIOR CLOB, VALOR_NUEVO CLOB, USUARIO VARCHAR2(100) NOT NULL, FECHA_HORA TIMESTAMP WITH TIME ZONE NOT NULL);
+-- Los grants dependen de usuarios Oracle provistos por operaciones; no se inventan aquí.
