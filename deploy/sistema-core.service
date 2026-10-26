@@ -1,0 +1,13 @@
+[Unit]
+Description=Sistema Core API
+After=network-online.target
+
+[Service]
+Type=simple
+User=sistemacore
+EnvironmentFile=/etc/sistema-core/application.env
+ExecStart=/usr/bin/java -jar /opt/sistema-core/sistema-core.jar
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

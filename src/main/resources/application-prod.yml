@@ -1,0 +1,7 @@
+# También en producción los adaptadores son dummy hasta la integración aprobada.
+server:
+  port: ${PORT:8080}
+management:
+  health:
+    defaults:
+      enabled: true
