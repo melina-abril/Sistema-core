@@ -1,5 +1,9 @@
-# Sistema Core
+# Sistema Core — backend
 
-Sistema central de la operación: administra clientes, cuentas y movimientos, y es la fuente de datos del resto de los sistemas de la empresa.
+Monolito modular en Java 21 y Spring Boot 3. Cada módulo reside en `src/main/java/com/empresa/sistemacore/modules` y sus controladores se registran automáticamente mediante component scanning; no existe un router manual. Los endpoints del MVP devuelven JSON dummy, sin persistencia ni llamadas a sistemas externos.
 
-El código del backend se genera con IA desde AI IT Framework (arquitectura "Sistema Core - Backend": Spring Boot, monolito modular hexagonal, Oracle). Cada generación aprobada llega en una rama `ai/codegen-backend-{id}`.
+## Ejecución
+
+Instalar Java 21 y Maven 3.9. Ejecutar `mvn spring-boot:run` y consultar `/actuator/health`. Para las rutas protegidas, configurar `JWT_JWK_SET_URI` con el endpoint de claves de un emisor autorizado y enviar un JWT válido cuyo claim `roles` contenga `OPERADOR`, `SUPERVISOR` o `INTEGRACION`. El valor `example.invalid` es solo un marcador y no valida tokens. No guardar credenciales en el repositorio.
+
+El perfil predeterminado es `dev`. `application.yml` desactiva explícitamente DataSource, JPA y Flyway mientras los adaptadores sean dummy. Las variables Oracle del ejemplo de despliegue quedan reservadas para una futura integración; no activan una conexión. Ver `docs/arquitectura.md` y `docs/runbook-cierre-diario.md`.

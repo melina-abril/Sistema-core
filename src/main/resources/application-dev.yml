@@ -1,0 +1,6 @@
+# Los servicios devuelven respuestas dummy; no se conecta a Oracle en este perfil.
+server:
+  port: ${PORT:8080}
+logging:
+  level:
+    com.empresa.sistemacore: INFO
