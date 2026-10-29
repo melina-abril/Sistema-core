@@ -41,6 +41,6 @@ public class AuthController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @PreAuthorize("hasRole('SUPERVISOR')")
     public void unlockUser(@PathVariable String id) {
-        desbloqueoUsuarioService.unlockUser(id);
+        desbloqueoUsuarioService.desbloquear(id);
     }
 }

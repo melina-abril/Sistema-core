@@ -3,17 +3,17 @@ package com.empresa.sistemacore.modules.inicio.application;
 import com.empresa.sistemacore.shared.security.Roles;
 import java.time.LocalDate;
 
-/** Resumen de la fecha operativa para la persona autenticada. */
-public record ResumenDiaDto(
-        String nombre,
-        Roles rol,
-        LocalDate fechaOperativa,
-        long cantidadMovimientos,
-        EstadoCierre estadoCierre) {
+/** Respuesta del resumen correspondiente a la fecha operativa vigente. */
+public final class ResumenDiaDto {
 
-    public enum EstadoCierre {
-        PENDIENTE,
-        EN_CURSO,
-        COMPLETADO
+    private ResumenDiaDto() {
+    }
+
+    public record Respuesta(
+            String nombre,
+            Roles rol,
+            LocalDate fechaOperativa,
+            long cantidadMovimientos,
+            String estadoCierre) {
     }
 }
