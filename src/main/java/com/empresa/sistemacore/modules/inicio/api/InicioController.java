@@ -17,7 +17,7 @@ public class InicioController {
     }
 
     @GetMapping("/resumen")
-    public ResumenDiaDto obtenerResumen() {
-        return resumenDiaService.obtenerResumen();
+    public ResumenDiaDto.Respuesta getDailySummary() {
+        return resumenDiaService.obtener();
     }
 }

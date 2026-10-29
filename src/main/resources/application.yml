@@ -1,19 +1,18 @@
 spring:
-  application:
-    name: sistema-core
   profiles:
     default: dev
-server:
-  port: ${SERVER_PORT:8080}
-app:
-  zone-id: ${APP_ZONE_ID:UTC}
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: none
+    open-in-view: false
 jwt:
-  secret: ${JWT_SECRET:}
+  secret: ${JWT_SECRET}
 management:
   endpoints:
     web:
       exposure:
         include: health
-  endpoint:
-    health:
-      show-details: never

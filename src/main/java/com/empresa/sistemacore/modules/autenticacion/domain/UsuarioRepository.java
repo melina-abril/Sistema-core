@@ -2,12 +2,11 @@ package com.empresa.sistemacore.modules.autenticacion.domain;
 
 import java.util.Optional;
 
-/** Puerto de usuarios; su implementación actual es en memoria. */
 public interface UsuarioRepository {
 
-    Optional<Usuario> porId(String id);
+    Optional<Usuario> porUsernameParaActualizar(String username);
 
-    Optional<Usuario> porUsername(String username);
+    Optional<Usuario> porIdParaActualizar(String id);
 
     Usuario guardar(Usuario usuario);
 }
