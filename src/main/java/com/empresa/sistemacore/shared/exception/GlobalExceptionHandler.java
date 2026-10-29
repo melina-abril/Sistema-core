@@ -35,6 +35,11 @@ public class GlobalExceptionHandler {
         return problem(HttpStatus.FORBIDDEN, "Acceso denegado");
     }
 
+    @ExceptionHandler(NotFoundException.class)
+    public ResponseEntity<ProblemDetail> notFound(NotFoundException exception) {
+        return problem(HttpStatus.NOT_FOUND, exception.getMessage());
+    }
+
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ProblemDetail> validation(MethodArgumentNotValidException exception) {
         return problem(HttpStatus.BAD_REQUEST, "Los datos enviados no son válidos");
