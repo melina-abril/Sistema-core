@@ -1,0 +1,18 @@
+[Unit]
+Description=Sistema Core
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=sistema-core
+Group=sistema-core
+WorkingDirectory=/opt/sistema-core
+EnvironmentFile=/etc/sistema-core/application.env
+ExecStart=/usr/bin/java -jar /opt/sistema-core/sistema-core.jar
+Restart=on-failure
+RestartSec=5
+SuccessExitStatus=143
+
+[Install]
+WantedBy=multi-user.target
