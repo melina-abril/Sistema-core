@@ -40,7 +40,7 @@ public class AuthController {
     @PostMapping("/usuarios/{id}/desbloqueo")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @PreAuthorize("hasRole('SUPERVISOR')")
-    public void unlockUser(@PathVariable String id) {
-        desbloqueoUsuarioService.desbloquear(id);
+    public void unlockUser(@PathVariable String id, @Valid @RequestBody AuthDto.DesbloqueoRequest request) {
+        desbloqueoUsuarioService.desbloquear(id, request.motivo());
     }
 }

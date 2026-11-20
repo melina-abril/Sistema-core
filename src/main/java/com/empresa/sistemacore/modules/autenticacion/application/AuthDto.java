@@ -17,4 +17,7 @@ public final class AuthDto {
 
     public record LoginResponse(String token, Instant expiraEn, String nombre, Roles rol) {
     }
+
+    public record DesbloqueoRequest(@NotBlank @Size(min = 10, max = 200) String motivo) {
+    }
 }

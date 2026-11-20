@@ -52,7 +52,9 @@ public class AuthAuditJpaEntity {
         this.entidadId = event.entityId();
         this.accion = event.action();
         this.valoresAnteriores = null;
-        this.valoresNuevos = Map.of("username", event.username());
+        this.valoresNuevos = event.motivo() == null
+                ? Map.of("username", event.username())
+                : Map.of("username", event.username(), "motivo", event.motivo());
         this.usuario = event.actor();
         this.fecha = event.fecha();
     }

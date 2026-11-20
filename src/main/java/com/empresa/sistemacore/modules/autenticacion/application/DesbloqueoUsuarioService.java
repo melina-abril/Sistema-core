@@ -29,7 +29,7 @@ public class DesbloqueoUsuarioService {
     }
 
     @Transactional
-    public void desbloquear(String id) {
+    public void desbloquear(String id, String motivo) {
         try {
             UUID.fromString(id);
         } catch (IllegalArgumentException exception) {
@@ -40,6 +40,6 @@ public class DesbloqueoUsuarioService {
         usuario.desbloquear();
         usuarios.guardar(usuario);
         eventos.publishEvent(new AuthEvent(usuario.getId(), usuario.getUsername(), "DESBLOQUEO",
-                currentUser.username(), Instant.now(clock)));
+                currentUser.username(), Instant.now(clock), motivo));
     }
 }
