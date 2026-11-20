@@ -50,7 +50,7 @@ public class LoginService {
         }
         if (usuario.estaBloqueado()) {
             publicar(usuario.getId(), username, "INGRESO_BLOQUEADO", username);
-            throw new LockedException("El usuario está bloqueado");
+            throw new LockedException("El usuario está bloqueado. Pide el desbloqueo a un supervisor");
         }
         if (!passwordEncoder.matches(request.contrasena(), usuario.getPasswordHash())) {
             usuario.registrarIntentoFallido(Instant.now(clock));
@@ -58,7 +58,7 @@ public class LoginService {
             publicar(usuario.getId(), username,
                     usuario.estaBloqueado() ? "BLOQUEO" : "INTENTO_FALLIDO", username);
             if (usuario.estaBloqueado()) {
-                throw new LockedException("El usuario está bloqueado");
+                throw new LockedException("El usuario está bloqueado. Pide el desbloqueo a un supervisor");
             }
             throw new BadCredentialsException("Usuario o contraseña inválidos");
         }
